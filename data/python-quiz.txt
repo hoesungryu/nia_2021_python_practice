@@ -1,0 +1,212 @@
+##### quiz2-5
+2017년 7월 2일 연이율 3% 계좌를 생성하여 3000000원을 입금한 경우
+2018년 7월 2일 계좌 총액을 계산하여 출력하는 프로그램을 작성하십시오.
+프로그램에서 입금액을 저장할 변수, 연이율을 저장할  변수를 만들어 사용하십시오.
+
+#principal = 3000000
+#interest_rate = 3
+#print(principal * (1 + interest_rate / 100) )
+
+#### quiz2-6
+quiz2-5 문제는 다음과 같습니다.
+      2017년 7월 2일 연이율 3% 계좌를 생성하여 3000000원을 입금한 경우
+      2018년 7월 2일 계좌 총액을 계산하여 출력하는 프로그램을 작성하십시오.
+     프로그램에서 입금액을 위한 변수, 연이율을 위한 변수를 만들어 사용하십시오.
+위의 프로그램을  입금액과 연이율을 입력받아 총액을 출력하도록 변경하십시오.
+
+#principal = float(input("입금액(원): "))
+#interest_rate = float(input("연이율(%): "))
+#principal, interest_rate  = eval (input("입금액(원), 연이율(%): "))
+#balance = principal * ( 1 + interest_rate / 100.0 )
+#print(balance)
+
+### quiz2-7
+삼각형의 세변의 길이를 입력하면 삼각형 넓이를 출력하는 프로그램을 작성하십시오.
+
+삼각형의 세변의 길이가 3,4,5인 경우 삼각형 넓이는 다음과 같이 계산합니다.
+     x = (3 + 4 + 5)/2
+     넒이는   x(x-3)(x-4)(x-5)  의 양의 제곱근
+
+s1, s2, s3 = eval(input("삼각형 세 변 길이: "))
+s = (s1 + s2 + s3)/2
+print("삼각형 넓이는 ", (s*(s-s1)*(s-s2)*(s-s3))**0.5)
+
+##################################################
+#####################			quiz3-3 코드
+다음과 같은 리스트에 대해서 아래의 요구사항을 만족시키는 프로그램을 작성하세요.
+mylist = [7, 13, 22, 100, 4]
+
+(a) 특정 위치와 아이템을 입력받아서 리스트에 추가하세요.
+(b) 위 (a)의 결과를 출력하세요.
+(c) 위 (a)의 리스트를 아이템 값의 내림차순으로 정렬하세요.
+(d) 위 (c)의 리스트에서 마지막 아이템을 삭제하세요.
+(e) 위 (d)의 결과를 출력하세요.
+
+
+mylist = [7, 13, 22, 100, 4]
+
+#idx = int(input("위치 입력(0~4 사이의 정수): "))
+#val = int(input("아이템 값 입력(정수): "))
+idx, val = eval(  input("위치 입력(0~4 사이의 정수), 아이템 값 입력(정수): ") )
+mylist.insert(idx, val)
+print(mylist)
+mylist.sort(reverse=True)
+mylist.pop()
+print(mylist)
+
+
+##################################################
+#####################			quiz3-7 코드
+다음과 같은 리스트 a와 튜플 b에 대해서 아래의 요구사항을 만족시키는 프로그램을 작성하세요.
+a = [1, 3, 5, 7, 9]
+b = (2, 3, 5, 7, 11, 13)
+
+(a) 새로운 정수 값을 입력받아서 리스트 a에 추가하세요.
+(b) a와 b의 교집합을 구해서 출력하세요.
+(c) a와 b의 합집합을 구해서 출력하세요.
+
+
+a = [1, 3, 5, 7, 9]
+b = (2, 3, 5, 7, 11, 13)
+
+num = int(input("정수 입력: "))
+a.append(num)
+
+a = set(a)
+b = set(b)
+
+print(a.intersection(b))
+print(a.union(b))
+
+
+###quiz4-6
+각 조에 속한 사람들의 성을 다음과 같이 리스트 변수 t 에 보관하고 있습니다.
+t = [ ['kim', 'lee', 'kim'], ['park', 'cho', 'sung'], ['kim', 'cho', 'lee', 'gang'] ]
+ex = [ 'lee', 'cho', 'gang']
+각 성이 리스트 ex 에 포함되어 있는 경우를 제외한 나머지 성을 다음과 같이 출력하십시오.
+[ kim kim ]
+[ park sung ]
+[ kim ]
+
+for, if, continue 문 만을 사용합니다. (not 문을 사용하지 않습니다)
+
+
+#t = [ ['kim', 'lee', 'kim'], ['park', 'cho', 'sung'], ['kim', 'cho', 'lee', 'gang'] ]
+#ex = [ 'lee', 'cho', 'gang']
+#
+#for jo in t:
+#    print('[ ', end = '')
+#    for name in jo:
+#        if name in ex :
+#            continue
+#        print(name, end=' ')
+#    print(']')
+
+###quiz4-7 
+다음과 같이 출력하는 프로그램을 제어문을 사용하여 작성하십시오.
+
+     *
+    ***
+   *****
+  *******
+ *********
+
+각 line의 첫번째 * 앞에 space를 몇개씩 출력하는가를 생각해봅니다.
+
+for s in range(1, 6):
+    print(' '*(5-s)+'*'*(s*2-1) )
+    
+
+### quiz6-2
+함수 mod(m, n)을 다음과 같이 정의합니다. 
+    매개변수 m과 n 에 전달된 값이 모두 양의 정수일 때,  m을  n으로 나눈 나머지 값을 반환합니다.
+    양의 정수가 아닌 경우, "매개변수는 모두 양의 정수이어야 합니다." 라고 출력합니다.
+
+m 과 n 변수에 숫자를 입력받는 문장과, 
+mod 함수를 m,n 값으로 호출하여 결과값을 출력하는 문장도 작성합니다.
+
+
+#
+#def mod(m, n):
+#    if type(m) != int or type(n) != int or m <= 0 or n <= 0 :
+#        print("매개변수는 모두 양의 정수이어야 합니다.")
+#        return   # 이 문장이 없으면???
+#    else:
+#        return( m - m//n * n )
+#
+#m = eval(input("m: "))
+#n = eval(input("n: "))
+#print(mod(m, n))
+
+###quiz6-4
+과일의 비타민 함유량을 다음과 같이 전달하는 함수 vitamin_c 는 각 과일 이름과 함유량을
+인자로 받아 dict로 저장하고, 이름과 함유량을 출력예와 같이 출력한후, 총함유량을 반환한다.
+이와 같은 함수 vitamin_c를 정의한다.
+
+다음과 같은 함수 vitamin_c 호출문도 작성한다.
+print("총 함유량:" ,vitamin_c(citron=105,strawberry=94,quince=81,lemon=70,tangerine=39))
+print("총 함유량:" ,vitamin_c(orange=43, kiwi=27, cherryTomato=21, appe=4))
+
+#def vitamin_c(**fruits):
+#    total = 0
+#    print("-"*34)
+#    print("{:16}{}".format("Fruit Name","Vitamin C Content"))
+#    print("-"*34)
+#    for name in fruits:
+#        total += fruits[name]
+#        print("{:16}{}".format(name, fruits[name]) )
+#    print("-"*34)
+#    return ( total )
+
+#print("총 함유량:" ,vitamin_c(citron=105,strawberry=94,quince=81,lemon=70,tangerine=39))
+#print("총 함유량:" ,vitamin_c(orange=43, kiwi=27, cherryTomato=21, appe=4))        
+
+quiz6-6
+주어진 문자열 안에서의 각 문자의 출현빈도를 dictionary로 만들어 반환하는 함수 ch_bin()을 작성하십시오.
+
+문자열을 입력받고, 함수 ch_bin 호출 시 인자로 문자열을 사용한 결과인  dictionary를 출력하는 문장을 작성하십시오.
+def ch_bin(word):
+    d = {}
+    for ch in word:
+        if ch in d:
+            d[ch] += 1
+        else:
+            d[ch] = 1
+    return d
+
+w = input("문자열 입력: ")
+print( ch_bin(w) )
+
+
+quiz7-2
+다음과 같이 각 라인마다 점수 한개씩 기록되어 있는 result.txt 파일을 읽어서 점수들의 합계와 평균을 구하여
+ res.txt 파일에 쓰는 프로그램을 작성하세요.
+
+=================
+score.txt 파일 내용 (예시1)
+75
+56
+38
+98
+62
+3
+81
+17
+52
+43
+
+
+total = 0
+cnt = 0
+
+with open("result.txt", 'r') as f:
+	while True:
+		data = f.readline()
+	if not data:
+		break
+	total = total + int(data)
+	cnt += 1
+
+with open("res.txt" , 'w') as f:
+	f.write("sum : " + str(total) + "\n")
+	f.write("avg : " + str(total / cnt) + "\n")
